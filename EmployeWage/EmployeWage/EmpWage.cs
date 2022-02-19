@@ -8,39 +8,39 @@ namespace EmployeWage
 {
     public class EmpWage
     {
-        public int empHrs;
+        public int empHrs=0;
         public int empTotalWage;
         public void Calculation()
         {
-            int WagePerHrs = 20;
+            const int Full_Time = 1;
+            const int Part_Time = 2;
+            int empWagePerHrs = 20;
+            int Total_Wage = 0;
             Random random = new Random();
 
-            int RandomNumber = random.Next(0, 2);//To check employee is present or not
+            int RandomNumber = random.Next(0, 3);
+            switch (RandomNumber)
+            {
+                case Full_Time:
+                    empHrs = 8;
+                    Console.WriteLine("Employee worked for Full time");
+                    break;
+               
+                case Part_Time:
+                    empHrs = 4;
+                    Console.WriteLine("Employee worked for Part time");
+                    break;
+               
+                default:
+                    Console.WriteLine("Employee is Absent");
+                    break ;
+             }
             
-            if (RandomNumber == 0)
-            {
-                Console.WriteLine("Employee is Present");
-                int check = random.Next(0, 2);//To check employee is full time or not
-                if (check == 1)
-                {
-                    Console.WriteLine("Employee is present for full time");
-                    empHrs = 8;//for full time working hrs must be 8.
-                }
-                else if (check==1)
-                {
-                Console.WriteLine("Employe is present for part time");
-                empHrs = 4;
-                }
-
-        }
-        else
-            {
-                Console.WriteLine("Emplyee is Absent");
-            }
+           
         //calculating total emp wage
-        empTotalWage = WagePerHrs* empHrs;
+        Total_Wage = empHrs * empWagePerHrs;
         //printing total emp wage
-        Console.WriteLine("EmployeWage Total Wage is = "+empTotalWage);
+        Console.WriteLine("Employee Wage is = "+Total_Wage);
 
         }
     }
