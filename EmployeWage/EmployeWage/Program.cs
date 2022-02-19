@@ -6,9 +6,8 @@ namespace EmployeWage
     {
         static void Main(string[] args)
         {
-           // EmpWage.Calculation();
-            EmpWage eWage = new EmpWage();
-            eWage.Calculation();
+            // EmpWage.Calculation();
+            EmpWage.Emp();
             Console.ReadLine(); 
 
         }
