@@ -10,7 +10,7 @@ namespace EmployeWage
     { 
         public int empHrs;
         public int empTotalWage;
-        public void IffElse()
+        public void Calculation()
         {
             int WagePerHrs = 20;
             Random random = new Random();
