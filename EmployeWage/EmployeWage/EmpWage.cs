@@ -18,10 +18,14 @@ namespace EmployeWage
             int total_Wage = 0;
             int Max_Working_Days = 20;
             int days = 1;
+            int EmpWage = 0;
+            int WorkingHrs = 0;
+            int Max_Working_Hrs = 100;
             Random random = new Random();
+            days = 1;
 
 
-            for (days = 1; days < Max_Working_Days; days++)//19 times
+            while (days <= Max_Working_Days && WorkingHrs < Max_Working_Days)
             {
                 int RandomNumber = random.Next(0, 3);//random here used to check if employee is present or not
                 if (RandomNumber == Full_Time)
@@ -37,13 +41,17 @@ namespace EmployeWage
                 else
                 {
                     Console.WriteLine("Employee is Absent");
-                    empHrs = 0;
                 }
-               
-                totalHrs += empHrs; //Adding employee total hours 
-                total_Wage = totalHrs * empWagePrHr;//calculating total wage
-                Console.WriteLine("Employee Total wage is = "+total_Wage);
+
+                EmpWage = empHrs * empWagePrHr;
+                Console.WriteLine("Employee wage for day {0} is {1}", days, EmpWage);
+                total_Wage = total_Wage + EmpWage;
+                totalHrs = totalHrs + empHrs;
+
+                days++;
             }
+
+            Console.WriteLine("Total Hrs wage of employee for {0} days is {1} hours is {2}", days - 1, totalHrs, total_Wage);
 
         }
     }
