@@ -1,0 +1,8 @@
+F:\EmpWageOOPs\EmployeWage\EmployeWage\bin\Debug\EmployeWage.exe.config
+F:\EmpWageOOPs\EmployeWage\EmployeWage\bin\Debug\EmployeWage.exe
+F:\EmpWageOOPs\EmployeWage\EmployeWage\bin\Debug\EmployeWage.pdb
+F:\EmpWageOOPs\EmployeWage\EmployeWage\obj\Debug\EmployeWage.csproj.AssemblyReference.cache
+F:\EmpWageOOPs\EmployeWage\EmployeWage\obj\Debug\EmployeWage.csproj.SuggestedBindingRedirects.cache
+F:\EmpWageOOPs\EmployeWage\EmployeWage\obj\Debug\EmployeWage.csproj.CoreCompileInputs.cache
+F:\EmpWageOOPs\EmployeWage\EmployeWage\obj\Debug\EmployeWage.exe
+F:\EmpWageOOPs\EmployeWage\EmployeWage\obj\Debug\EmployeWage.pdb
