@@ -6,7 +6,7 @@ namespace EmployeWage
     {
         static void Main(string[] args)
         {
-            EmpWage.IffElse();
+            EmpWage.Calculaion();
             Console.ReadLine(); 
 
         }
