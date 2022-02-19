@@ -8,7 +8,7 @@ namespace EmployeWage
 {
     public class EmpWage
     {
-        public static void IffElse()
+        public static void Calculation()
         {
             Random random = new Random();
             int RandomNumber = random.Next(0,2);
