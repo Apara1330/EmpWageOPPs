@@ -11,30 +11,36 @@ namespace EmployeWage
         public const int FULL_TIME = 1;
         public const int PART_TIME = 2;
         public static int empHrs = 0;
-        public static void Emp()
+        public void Emp(string company, int EmpRatePerHr,int MaxWorkingHrs,int MaxWorkingDays)
         {
-            int totalWage = 0;
             int empWage;
-            const int EMP_RATE_PER_HR = 20;
-            const int MAX_WORKING_DAYS = 20;
-            const int MAX_WORKING_HRS = 100;
             int days = 1;
             int empWorkingHrs = 0;
+            int totalWage = 0;
 
 
-            Random random = new Random();
-            while (days <= MAX_WORKING_DAYS && empWorkingHrs <= MAX_WORKING_HRS)//iterating days out of max working days and hours 
+            Random random = new Random();//to generate random number
+            while (empWorkingHrs < MaxWorkingHrs && days <= MaxWorkingDays) 
             {
                 int randomInput = random.Next(0, 3);
                 GetWorkingHrs(randomInput); //calling method to get working hours
-                empWage = EMP_RATE_PER_HR * empHrs;
-                Console.WriteLine("Employee wage for day {0} is {1}", days, empWage);
+                empWage = EmpRatePerHr * empHrs;
+               // Console.WriteLine("Employee wage for day {0} is {1}", days, empWage);
                 totalWage = totalWage + empWage;
-                empWorkingHrs = empWorkingHrs + empHrs;
-                days++;
+                empWorkingHrs = empHrs;
+                
+                if(empWorkingHrs > MaxWorkingHrs)
+                {
+                    empWorkingHrs = MaxWorkingHrs;
+                }
+                else
+                {
+                    days++;
+                }
 
             }
-            Console.WriteLine("Total wage for {0}days and hrs:{1} is:{2} ", MAX_WORKING_DAYS, empWorkingHrs, totalWage);
+            Console.WriteLine(" In {0} company Employee worked for {1}days out of {2}days and {3}hours out of {4}hours so Employe wage is:{5} ", company, days - 1, MaxWorkingDays, empWorkingHrs, MaxWorkingHrs, totalWage);
+
         }
 
 
@@ -44,15 +50,15 @@ namespace EmployeWage
             {
                 case FULL_TIME:
                     empHrs = 8;
-                    Console.WriteLine("Employee is present Fulltime");
+                    //Console.WriteLine("Employee is present Fulltime");
                     break;
                 case PART_TIME:
                     empHrs = 4;
-                    Console.WriteLine("Employee is present Parttime");
+                   // Console.WriteLine("Employee is present Parttime");
                     break;
                 default:
                     empHrs = 0;
-                    Console.WriteLine("Employee is Absent");
+                   // Console.WriteLine("Employee is Absent");
                     break;
             }
         }
