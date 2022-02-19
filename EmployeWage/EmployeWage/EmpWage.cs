@@ -8,51 +8,55 @@ namespace EmployeWage
 {
     public class EmpWage
     {
+        public const int FULL_TIME = 1;
+        public const int PART_TIME = 2;
+        public static int empHrs = 0;
         public static void Emp()
         {
-            const int Full_Time = 1;
-            const int Part_Time = 2;
-            int empHrs = 0;
-            int totalHrs = 0;
-            int empWagePrHr = 20;
-            int total_Wage = 0;
-            int Max_Working_Days = 20;
+            int totalWage = 0;
+            int empWage;
+            const int EMP_RATE_PER_HR = 20;
+            const int MAX_WORKING_DAYS = 20;
+            const int MAX_WORKING_HRS = 100;
             int days = 1;
-            int EmpWage = 0;
-            int WorkingHrs = 0;
-            int Max_Working_Hrs = 100;
+            int empWorkingHrs = 0;
+
+
             Random random = new Random();
-            days = 1;
-
-
-            while (days <= Max_Working_Days && WorkingHrs < Max_Working_Days)
+            while (days <= MAX_WORKING_DAYS && empWorkingHrs <= MAX_WORKING_HRS)//iterating days out of max working days and hours 
             {
-                int RandomNumber = random.Next(0, 3);//random here used to check if employee is present or not
-                if (RandomNumber == Full_Time)
-                {
-                    Console.WriteLine("Employee worked Full time");
-                    empHrs = 8;
-                }
-                else if (RandomNumber == Part_Time)
-                {
-                    Console.WriteLine("Employee worked Part time");
-                    empHrs = 4;
-                }
-                else
-                {
-                    Console.WriteLine("Employee is Absent");
-                }
-
-                EmpWage = empHrs * empWagePrHr;
-                Console.WriteLine("Employee wage for day {0} is {1}", days, EmpWage);
-                total_Wage = total_Wage + EmpWage;
-                totalHrs = totalHrs + empHrs;
-
+                int randomInput = random.Next(0, 3);
+                GetWorkingHrs(randomInput); //calling method to get working hours
+                empWage = EMP_RATE_PER_HR * empHrs;
+                Console.WriteLine("Employee wage for day {0} is {1}", days, empWage);
+                totalWage = totalWage + empWage;
+                empWorkingHrs = empWorkingHrs + empHrs;
                 days++;
+
             }
-
-            Console.WriteLine("Total Hrs wage of employee for {0} days is {1} hours is {2}", days - 1, totalHrs, total_Wage);
-
+            Console.WriteLine("Total wage for {0}days and hrs:{1} is:{2} ", MAX_WORKING_DAYS, empWorkingHrs, totalWage);
         }
+
+
+        public static void GetWorkingHrs(int randomInput)//This method calculates emp hours
+        {
+            switch (randomInput)//switc case to check employee present or absent
+            {
+                case FULL_TIME:
+                    empHrs = 8;
+                    Console.WriteLine("Employee is present Fulltime");
+                    break;
+                case PART_TIME:
+                    empHrs = 4;
+                    Console.WriteLine("Employee is present Parttime");
+                    break;
+                default:
+                    empHrs = 0;
+                    Console.WriteLine("Employee is Absent");
+                    break;
+            }
+        }
+
+
     }
 }
